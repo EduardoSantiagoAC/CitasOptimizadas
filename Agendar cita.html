@@ -131,11 +131,11 @@
     </div>
 
     <script>
-        // Obtener la especialidad de los parámetros de la URL
+        
         const params = new URLSearchParams(window.location.search);
         const specialty = params.get('especialidad');
 
-        // Mostrar la especialidad en la parte superior
+        
         const specialtyInfo = document.getElementById('specialty-info');
         if (specialty) {
             specialtyInfo.textContent = `Especialidad: ${specialty}`;
@@ -143,12 +143,12 @@
             specialtyInfo.textContent = 'Especialidad no especificada.';
         }
 
-        // Función para enviar datos al backend
+        
         const form = document.getElementById('appointment-form');
         form.addEventListener('submit', async function (event) {
             event.preventDefault();
 
-            // Crear el objeto con los datos del formulario
+            
             const data = {
                 nombre: document.getElementById('patient-name').value,
                 edad: parseInt(document.getElementById('age').value),
@@ -158,7 +158,7 @@
             };
 
             try {
-                // Realizar la solicitud POST al backend
+                
                 const response = await fetch('http://127.0.0.1:5000/citas', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -167,9 +167,9 @@
 
                 if (response.ok) {
                     const result = await response.json();
-                    alert(result.message); // Mostrar mensaje de éxito
-                    form.reset(); // Reiniciar el formulario
-                    window.location.href = 'index.html'; // Redirigir al inicio
+                    alert(result.message); 
+                    form.reset(); 
+                    window.location.href = 'index.html'; 
                 } else {
                     const error = await response.json();
                     alert(`Error al registrar la cita: ${error.message}`);
