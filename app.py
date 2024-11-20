@@ -3,9 +3,9 @@ from flask_cors import CORS
 import pyodbc
 
 app = Flask(__name__)
-CORS(app)  # Permitir solicitudes desde el frontend
+CORS(app)  
 
-# Conexión a SQL Server
+
 conn = pyodbc.connect(
     "DRIVER={SQL Server};"
     "SERVER=SANTIAGO12;"
